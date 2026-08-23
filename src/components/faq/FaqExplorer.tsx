@@ -32,7 +32,7 @@ export function FaqExplorer() {
   return (
     <div>
       <div className="flex flex-col gap-sm lg:flex-row lg:items-end lg:justify-between">
-        <Field label="Search the FAQ" className="lg:max-w-sm lg:flex-1">
+        <Field label="Search the FAQ" className="lg:max-w-[24rem] lg:flex-1">
           {({ inputId }) => (
             <TextInput
               id={inputId}

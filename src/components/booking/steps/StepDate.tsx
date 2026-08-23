@@ -70,7 +70,7 @@ export function StepDate({
         {BOOKING_WINDOW_DAYS} days ahead.
       </p>
 
-      <div className="mt-md max-w-md">
+      <div className="mt-md max-w-[28rem]">
         {error ? (
           <ErrorState
             title="We couldn't load the calendar"

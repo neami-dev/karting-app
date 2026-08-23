@@ -51,7 +51,11 @@
   --radius-xl: 12px;
   --radius-full: 9999px;
 
-  /* --- Spacing ladder (named, 8px based) --- */
+  /* --- Spacing ladder (named, 8px based) ---
+     NOTE: xs/sm/md/lg/xl in this namespace shadow Tailwind's container scale,
+     which is what `max-w-*` / `min-w-*` resolve against. Use an explicit value
+     (e.g. `max-w-[36rem]`) for widths rather than `max-w-xl`, which would
+     silently resolve to this 64px spacing token. */
   --spacing-xxxs: 4px;
   --spacing-xxs: 8px;
   --spacing-xs: 16px;

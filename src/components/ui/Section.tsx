@@ -97,7 +97,7 @@ export function SectionHeading({
         {lede && (
           <p
             className={cx(
-              "t-body-md mt-xs max-w-xl text-pretty",
+              "t-body-md mt-xs max-w-[36rem] text-pretty",
               tone === "dark" ? "text-body" : "text-muted"
             )}
           >

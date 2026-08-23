@@ -20,7 +20,7 @@ export default function Error({
 
   return (
     <div className="editorial flex min-h-[60svh] flex-col justify-center py-xl">
-      <div className="max-w-xl">
+      <div className="max-w-[36rem]">
         <p className="t-caption-upper flex items-center gap-xxs text-warning">
           <span className="h-px w-8 bg-warning" aria-hidden="true" />
           Red flag

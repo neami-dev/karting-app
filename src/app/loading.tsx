@@ -8,8 +8,8 @@ export default function Loading() {
         <div className="editorial py-xl">
           <Skeleton className="h-3 w-32" />
           <Skeleton className="mt-sm h-14 w-full max-w-2xl" />
-          <Skeleton className="mt-xs h-4 w-full max-w-lg" />
-          <Skeleton className="mt-xs h-4 w-3/4 max-w-md" />
+          <Skeleton className="mt-xs h-4 w-full max-w-[32rem]" />
+          <Skeleton className="mt-xs h-4 w-3/4 max-w-[28rem]" />
           <div className="mt-lg flex gap-xxs">
             <Skeleton className="h-12 w-40" />
             <Skeleton className="h-12 w-40" />

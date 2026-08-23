@@ -39,7 +39,7 @@ interface BaseProps {
 
 function classes({ variant = "primary", size = "md", fullWidth, className }: BaseProps) {
   return cx(
-    "t-button inline-flex items-center justify-center gap-xxs rounded-none",
+    "t-button inline-flex items-center justify-center gap-xxs rounded-none whitespace-nowrap",
     "transition-colors duration-200 select-none",
     "disabled:opacity-40 disabled:pointer-events-none",
     VARIANTS[variant],

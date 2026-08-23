@@ -46,7 +46,7 @@ export function BookingConfirmation({ reference }: { reference: string }) {
     return (
       <div className="editorial py-xl">
         <Skeleton className="h-8 w-48" />
-        <Skeleton className="mt-sm h-16 w-full max-w-lg" />
+        <Skeleton className="mt-sm h-16 w-full max-w-[32rem]" />
         <Skeleton className="mt-sm h-64 w-full" />
       </div>
     );
@@ -106,7 +106,7 @@ export function BookingConfirmation({ reference }: { reference: string }) {
     <>
       {/* ---- Confirmation hero ------------------------------------------ */}
       <section className="relative isolate overflow-hidden border-b border-hairline">
-        <TrackVisual seed="podium" overlay="strong" className="absolute inset-0 -z-10" />
+        <TrackVisual seed="podium" overlay="strong" fill className="-z-10" />
 
         <div className="editorial py-xl">
           <div className="animate-rise">
@@ -119,7 +119,7 @@ export function BookingConfirmation({ reference }: { reference: string }) {
               You&apos;re on the grid, {booking.customer.fullName.split(" ")[0]}.
             </h1>
 
-            <p className="t-body-md mt-xs max-w-xl text-body">
+            <p className="t-body-md mt-xs max-w-[36rem] text-body">
               We&apos;ve sent a confirmation to {booking.customer.email}. Keep your
               reference handy — it&apos;s all you need at the desk.
             </p>
@@ -277,13 +277,12 @@ export function BookingConfirmation({ reference }: { reference: string }) {
                 Send confirmation to WhatsApp
               </ButtonAnchor>
 
-              <ButtonAnchor
+              <a
                 href={`tel:${location.phone.replace(/\s/g, "")}`}
-                variant="tertiary"
-                className="mt-xxs justify-start"
+                className="t-body-md mt-xxs text-body underline-offset-4 transition-colors hover:text-ink hover:underline"
               >
                 Call the circuit — {location.phone}
-              </ButtonAnchor>
+              </a>
             </div>
 
             <ul className="mt-sm flex flex-col gap-xs border-t border-hairline pt-sm">

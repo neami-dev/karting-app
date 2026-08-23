@@ -66,7 +66,7 @@ export function EmptyState({
         ⚑
       </span>
       <p className="t-title-md text-ink">{title}</p>
-      <p className="t-body-md mt-xxs max-w-sm text-body">{message}</p>
+      <p className="t-body-md mt-xxs max-w-[24rem] text-body">{message}</p>
       {action && <div className="mt-sm flex flex-wrap justify-center gap-xxs">{action}</div>}
     </div>
   );

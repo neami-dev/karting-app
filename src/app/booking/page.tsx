@@ -23,7 +23,7 @@ export default function BookingPage() {
             Guest booking
           </p>
           <h1 className="t-display-lg mt-xs text-ink">Book your session</h1>
-          <p className="t-body-md mt-xxs max-w-xl text-body">
+          <p className="t-body-md mt-xxs max-w-[36rem] text-body">
             Six short steps, about two minutes. No account, no password — you pay
             at the circuit.
           </p>

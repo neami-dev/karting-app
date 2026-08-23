@@ -21,10 +21,12 @@ export function buildMetadata({
   noIndex?: boolean;
 }): Metadata {
   const url = `${site.domain}${path}`;
+  // The root layout owns the "%s | Atlas Karting" template, so `title` here
+  // stays bare. Open Graph has no template, so it gets the suffixed form.
   const fullTitle = path === "/" ? title : `${title} | ${site.name}`;
 
   return {
-    title: fullTitle,
+    title,
     description,
     keywords,
     alternates: { canonical: url },

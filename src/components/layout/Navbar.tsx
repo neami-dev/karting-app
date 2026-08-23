@@ -80,21 +80,21 @@ export function Navbar() {
         <div className="flex h-16 items-center justify-between gap-sm">
           <Link
             href="/"
-            className="shrink-0"
+            className="flex shrink-0 items-center py-xs"
             aria-label="Atlas Karting — home"
           >
             <Wordmark />
           </Link>
 
           {/* Desktop menu */}
-          <ul className="hidden items-center gap-md xl:flex">
+          <ul className="hidden items-center gap-sm xl:flex">
             {NAV.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
                   aria-current={isActive(item.href) ? "page" : undefined}
                   className={cx(
-                    "t-nav-link relative py-xs transition-colors duration-150",
+                    "t-nav-link relative whitespace-nowrap py-xs transition-colors duration-150",
                     isActive(item.href) ? "text-ink" : "text-body hover:text-ink"
                   )}
                 >
@@ -112,7 +112,7 @@ export function Navbar() {
 
           <div className="flex items-center gap-xs">
             {locations.length > 1 && (
-              <LocationSelect className="hidden w-44 lg:block" />
+              <LocationSelect className="hidden w-48 lg:block" />
             )}
 
             <ButtonLink href="/booking" size="sm" className="hidden sm:inline-flex">

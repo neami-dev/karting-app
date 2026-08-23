@@ -10,7 +10,10 @@ export function Footer() {
   const events = listExperiencesSync().filter((e) => e.category === "events");
   const year = new Date().getFullYear();
 
-  const linkClass = "t-body-sm text-body transition-colors duration-150 hover:text-ink";
+  // inline-block + padding lifts these dense footer links clear of the 24px
+  // minimum target size; a bare inline link was only 16px tall.
+  const linkClass =
+    "t-body-sm inline-block py-xxxs text-body transition-colors duration-150 hover:text-ink";
 
   return (
     <footer className="border-t border-hairline bg-canvas">
@@ -18,24 +21,21 @@ export function Footer() {
         <div className="grid gap-lg md:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-1">
             <Wordmark />
-            <p className="t-body-sm mt-xs max-w-xs text-body">
+            <p className="t-body-sm mt-xs max-w-[20rem] text-body">
               Professional karting circuits across Morocco. Race-spec karts, timed
               sessions, and a booking that takes two minutes.
             </p>
-            <ul className="mt-sm flex gap-xs">
+            <ul className="mt-sm flex flex-wrap gap-xxs">
               {Object.entries(site.social).map(([name, href]) => (
                 <li key={name}>
                   <a
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="t-caption-upper text-muted-soft transition-colors hover:text-ink"
+                    className="t-caption-upper flex h-11 w-11 items-center justify-center border border-hairline text-muted-soft transition-colors hover:border-ink/40 hover:text-ink"
                   >
-                    {name.slice(0, 2)}
-                    <span className="sr-only">
-                      {" "}
-                      {name} — opens in a new tab
-                    </span>
+                    <span aria-hidden="true">{name.slice(0, 2)}</span>
+                    <span className="sr-only">{name} — opens in a new tab</span>
                   </a>
                 </li>
               ))}

@@ -13,7 +13,7 @@ export function FinalCta() {
 
   return (
     <section className="relative isolate overflow-hidden border-t border-hairline">
-      <TrackVisual seed="grid-start" overlay="strong" className="absolute inset-0 -z-10" />
+      <TrackVisual seed="grid-start" overlay="strong" fill className="-z-10" />
 
       <div className="editorial flex flex-col items-center py-xxl text-center">
         <p className="t-caption-upper flex items-center gap-xxs text-ink">
@@ -25,15 +25,15 @@ export function FinalCta() {
           Ready to race?
         </h2>
 
-        <p className="t-body-md mt-xs max-w-lg text-pretty text-body">
+        <p className="t-body-md mt-xs max-w-[32rem] text-pretty text-body">
           Pick a slot, add your racers, and we&apos;ll have the karts warmed up.
           Takes about two minutes and you don&apos;t need an account.
         </p>
 
-        <div className="mt-lg flex w-full max-w-md flex-col gap-xxs sm:flex-row">
+        <div className="mt-lg flex w-full max-w-[28rem] flex-col gap-xxs sm:flex-row">
           <ButtonLink
             href={selected ? `/booking?location=${selected.slug}` : "/booking"}
-            className="flex-1"
+            className="w-full sm:flex-1"
             size="lg"
           >
             Book Your Session
@@ -47,7 +47,7 @@ export function FinalCta() {
             rel="noopener noreferrer"
             variant="outline"
             size="lg"
-            className="flex-1"
+            className="w-full sm:flex-1"
           >
             <WhatsAppIcon className="h-4 w-4" />
             Book via WhatsApp

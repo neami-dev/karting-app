@@ -20,13 +20,13 @@ export function StepDetails({
   return (
     <fieldset>
       <legend className="t-display-md text-ink">Who&apos;s the booking for?</legend>
-      <p className="t-body-md mt-xxs max-w-xl text-body">
+      <p className="t-body-md mt-xxs max-w-[36rem] text-body">
         We use these details to confirm your booking and to reach you if anything
         changes on the day. There&apos;s no account to create and no password to
         remember.
       </p>
 
-      <div className="mt-md flex max-w-xl flex-col gap-sm">
+      <div className="mt-md flex max-w-[36rem] flex-col gap-sm">
         <Field label="Full name" required error={errors.fullName}>
           {({ inputId, describedBy }) => (
             <TextInput

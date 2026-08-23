@@ -22,14 +22,14 @@ export function Hero() {
 
   return (
     <section className="relative isolate flex min-h-[86svh] flex-col justify-end overflow-hidden md:min-h-[92svh]">
-      <TrackVisual seed="night-track" overlay="none" className="absolute inset-0 -z-10" priority />
+      <TrackVisual seed="night-track" overlay="none" fill className="-z-10" priority />
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-gradient-to-t from-canvas via-canvas/70 to-canvas/25"
+        className="absolute inset-0 -z-10 bg-gradient-to-r from-canvas via-canvas/75 to-canvas/15"
       />
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 top-0 -z-10 h-40 bg-gradient-to-b from-canvas/90 to-transparent"
+        className="absolute inset-0 -z-10 bg-gradient-to-t from-canvas via-transparent to-canvas/70"
       />
 
       <div className="editorial pb-lg pt-super md:pb-xl">
@@ -45,7 +45,7 @@ export function Hero() {
             <span className="text-body">Then find it faster.</span>
           </h1>
 
-          <p className="t-body-md mt-sm max-w-xl text-pretty text-lg leading-relaxed text-body">
+          <p className="t-body-md mt-sm max-w-[36rem] text-pretty text-lg leading-relaxed text-body">
             Race-spec karts on professional outdoor circuits, timed to the
             thousandth. Bring your friends, your kids, or your whole company —
             and settle it on track.
@@ -76,11 +76,11 @@ export function Hero() {
             <div className="mt-sm flex flex-col gap-xxs sm:flex-row">
               <ButtonLink
                 href={selectedSlug ? `/booking?location=${selectedSlug}` : "/booking"}
-                className="flex-1"
+                className="w-full sm:flex-1"
               >
                 Book Your Race
               </ButtonLink>
-              <ButtonLink href="/experiences" variant="outline" className="flex-1">
+              <ButtonLink href="/experiences" variant="outline" className="w-full sm:flex-1">
                 Explore Experiences
               </ButtonLink>
             </div>

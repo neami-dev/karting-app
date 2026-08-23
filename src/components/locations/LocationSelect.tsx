@@ -35,7 +35,7 @@ export function LocationSelect({
         )}
       >
         <option value="" disabled={ready && Boolean(selectedSlug)}>
-          Choose your circuit
+          Choose circuit
         </option>
         {locations.map((l) => (
           <option key={l.slug} value={l.slug} className="bg-canvas text-ink">

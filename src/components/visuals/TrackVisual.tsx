@@ -20,6 +20,13 @@ interface TrackVisualProps {
   /** Darkens the plate so display type stays legible on top */
   overlay?: "none" | "soft" | "strong" | "bottom";
   priority?: boolean;
+  /**
+   * Absolutely fill the nearest positioned ancestor — for full-bleed hero
+   * backdrops. Set via a prop rather than an `absolute` class from the caller,
+   * because Tailwind emits `.relative` after `.absolute`, so a class passed in
+   * would lose to this component's own positioning and collapse to no height.
+   */
+  fill?: boolean;
 }
 
 /** Per-seed geometry so no two surfaces look identical. */
@@ -39,21 +46,22 @@ const SEEDS: Record<
     streaks: number;
   }
 > = {
-  "grid-start": { from: "#2e2e2e", to: "#111111", horizon: 38, vanish: 50, kerbs: 10, accent: "kerb", streaks: 2 },
-  apex: { from: "#343434", to: "#0e0e0e", horizon: 42, vanish: 68, kerbs: 8, accent: "arc", streaks: 5 },
-  "night-track": { from: "#1e2126", to: "#070708", horizon: 34, vanish: 40, kerbs: 12, accent: "line", streaks: 7 },
-  podium: { from: "#3a3a3a", to: "#131313", horizon: 52, vanish: 50, kerbs: 6, accent: "burst", streaks: 0 },
-  "pit-lane": { from: "#2b2b2b", to: "#0f0f0f", horizon: 40, vanish: 26, kerbs: 9, accent: "line", streaks: 3 },
-  helmet: { from: "#333333", to: "#0c0c0c", horizon: 60, vanish: 50, kerbs: 4, accent: "arc", streaks: 1 },
-  chicane: { from: "#303030", to: "#101010", horizon: 44, vanish: 34, kerbs: 11, accent: "kerb", streaks: 4 },
-  confetti: { from: "#383838", to: "#121212", horizon: 56, vanish: 58, kerbs: 5, accent: "burst", streaks: 0 },
-  aerial: { from: "#2a2a2a", to: "#0d0d0d", horizon: 70, vanish: 50, kerbs: 14, accent: "arc", streaks: 2 },
+  "grid-start": { from: "#4a4a4a", to: "#151515", horizon: 38, vanish: 50, kerbs: 10, accent: "kerb", streaks: 2 },
+  apex: { from: "#54534f", to: "#131313", horizon: 42, vanish: 68, kerbs: 8, accent: "arc", streaks: 5 },
+  "night-track": { from: "#33404d", to: "#0b0d10", horizon: 34, vanish: 40, kerbs: 12, accent: "line", streaks: 7 },
+  podium: { from: "#5a564d", to: "#181818", horizon: 52, vanish: 50, kerbs: 6, accent: "burst", streaks: 0 },
+  "pit-lane": { from: "#464646", to: "#131313", horizon: 40, vanish: 26, kerbs: 9, accent: "line", streaks: 3 },
+  helmet: { from: "#4e4e4e", to: "#111111", horizon: 60, vanish: 50, kerbs: 4, accent: "arc", streaks: 1 },
+  chicane: { from: "#4c4a46", to: "#141414", horizon: 44, vanish: 34, kerbs: 11, accent: "kerb", streaks: 4 },
+  confetti: { from: "#585449", to: "#161616", horizon: 56, vanish: 58, kerbs: 5, accent: "burst", streaks: 0 },
+  aerial: { from: "#44474a", to: "#111111", horizon: 70, vanish: 50, kerbs: 14, accent: "arc", streaks: 2 },
 };
 
 export function TrackVisual({
   seed,
   className,
   overlay = "soft",
+  fill = false,
 }: TrackVisualProps) {
   const s = SEEDS[seed];
   const uid = `tv-${seed}`;
@@ -68,7 +76,15 @@ export function TrackVisual({
           : "bg-canvas/35";
 
   return (
-    <div className={cx("relative overflow-hidden bg-canvas", className)} aria-hidden="true">
+    <div
+      className={cx("overflow-hidden bg-canvas", className)}
+      style={
+        fill
+          ? { position: "absolute", inset: 0 }
+          : { position: "relative" }
+      }
+      aria-hidden="true"
+    >
       <svg
         viewBox="0 0 1200 800"
         preserveAspectRatio="xMidYMid slice"
@@ -77,24 +93,31 @@ export function TrackVisual({
       >
         <defs>
           <linearGradient id={`${uid}-sky`} x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor={s.from} />
+            <stop offset="0%" stopColor={s.to} />
+            <stop offset={`${s.horizon}%`} stopColor={s.from} />
             <stop offset="100%" stopColor={s.to} />
           </linearGradient>
 
           <linearGradient id={`${uid}-asphalt`} x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#1a1a1a" />
-            <stop offset="55%" stopColor="#242424" />
-            <stop offset="100%" stopColor="#0b0b0b" />
+            <stop offset="0%" stopColor="#1c1c1c" />
+            <stop offset="35%" stopColor="#333333" />
+            <stop offset="100%" stopColor="#0d0d0d" />
           </linearGradient>
 
-          <radialGradient id={`${uid}-glow`} cx="50%" cy={`${s.horizon}%`} r="55%">
-            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.16" />
+          <radialGradient
+            id={`${uid}-glow`}
+            cx={`${s.vanish}%`}
+            cy={`${s.horizon}%`}
+            r="45%"
+          >
+            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.38" />
+            <stop offset="60%" stopColor="#ffffff" stopOpacity="0.08" />
             <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
           </radialGradient>
 
           <radialGradient id={`${uid}-vignette`} cx="50%" cy="45%" r="72%">
             <stop offset="55%" stopColor="#000000" stopOpacity="0" />
-            <stop offset="100%" stopColor="#000000" stopOpacity="0.75" />
+            <stop offset="100%" stopColor="#000000" stopOpacity="0.6" />
           </radialGradient>
 
           <linearGradient id={`${uid}-streak`} x1="0" y1="0" x2="1" y2="0">
@@ -128,14 +151,14 @@ export function TrackVisual({
           <path
             d={`M0,800 L${s.vanish * 12 - 90},${s.horizon * 8}`}
             stroke="#ffffff"
-            strokeOpacity="0.22"
+            strokeOpacity="0.38"
             strokeWidth="3"
             fill="none"
           />
           <path
             d={`M1200,800 L${s.vanish * 12 + 90},${s.horizon * 8}`}
             stroke="#ffffff"
-            strokeOpacity="0.22"
+            strokeOpacity="0.38"
             strokeWidth="3"
             fill="none"
           />
@@ -156,7 +179,7 @@ export function TrackVisual({
                 width={w}
                 height={Math.max(y2 - y, 2)}
                 fill="#ffffff"
-                opacity={0.1 + 0.28 * t}
+                opacity={0.18 + 0.45 * t}
               />
             );
           })}

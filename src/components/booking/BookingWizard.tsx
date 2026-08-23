@@ -374,7 +374,7 @@ export function BookingWizard() {
             <div className="flex-1" />
 
             {blockReason && (
-              <p className="t-caption max-w-xs text-right text-muted">
+              <p className="t-caption max-w-[20rem] text-right text-muted">
                 {blockReason}
               </p>
             )}

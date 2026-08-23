@@ -27,10 +27,10 @@ export function PageHero({
 }) {
   return (
     <section className="relative isolate overflow-hidden border-b border-hairline">
-      <TrackVisual seed={seed} overlay="none" className="absolute inset-0 -z-10" />
+      <TrackVisual seed={seed} overlay="none" fill className="-z-10" />
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-gradient-to-t from-canvas via-canvas/80 to-canvas/40"
+        className="absolute inset-0 -z-10 bg-gradient-to-t from-canvas via-canvas/65 to-canvas/20"
       />
 
       <div
@@ -55,7 +55,7 @@ export function PageHero({
           </h1>
 
           {lede && (
-            <p className="t-body-md mt-sm max-w-xl text-pretty text-base leading-relaxed text-body">
+            <p className="t-body-md mt-sm max-w-[36rem] text-pretty text-base leading-relaxed text-body">
               {lede}
             </p>
           )}
