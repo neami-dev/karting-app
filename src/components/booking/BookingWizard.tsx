@@ -26,7 +26,7 @@ import { useLocations } from "@/components/locations/LocationContext";
 import { listExperiencesSync, getExperienceSync } from "@/lib/services/experiences";
 import { createGuestBooking } from "@/lib/services/bookings";
 import { quoteSync } from "@/lib/services/pricing";
-import { resolveRule } from "@/lib/pricing/engine";
+import { resolveBandId } from "@/lib/pricing/engine";
 import { validateCustomer } from "@/lib/booking/validation";
 import { site, whatsappLink } from "@/lib/data/site";
 import { formatPrice, cx } from "@/lib/format";
@@ -167,24 +167,26 @@ export function BookingWizard() {
       return;
     }
 
-    // Removing: drop racers that resolve to this band, blank ones first.
-    let toRemove = -delta;
-    const ordered = [...state.participants].sort((a, b) => {
-      const aFilled = a.age > 0 && a.heightCm > 0 ? 1 : 0;
-      const bFilled = b.age > 0 && b.heightCm > 0 ? 1 : 0;
-      return aFilled - bFilled;
-    });
+    // Removing: take racers from the band that was decremented, least-complete
+    // first so a half-filled row goes before one the customer finished.
+    const completeness = (p: BookingParticipant) =>
+      (p.age > 0 ? 1 : 0) + (p.heightCm > 0 ? 1 : 0);
 
-    for (const p of ordered) {
-      if (toRemove === 0) break;
-      const resolved =
-        p.age > 0 && p.heightCm > 0
-          ? resolveRule(experience.id, location.id, p.age, p.heightCm)
-          : null;
-      if (!resolved || resolved.id === ruleId) {
-        dispatch({ type: "remove_participant", id: p.id });
-        toRemove -= 1;
-      }
+    const inBand = state.participants.filter(
+      (p) => resolveBandId(experience.id, location.id, p.age, p.heightCm) === ruleId
+    );
+    // Racers matching no band at all (an out-of-range age) are the next best
+    // thing to drop — they can't be priced anyway.
+    const unbanded = state.participants.filter(
+      (p) => resolveBandId(experience.id, location.id, p.age, p.heightCm) === null
+    );
+
+    const ordered = [...inBand, ...unbanded].sort(
+      (a, b) => completeness(a) - completeness(b)
+    );
+
+    for (const p of ordered.slice(0, -delta)) {
+      dispatch({ type: "remove_participant", id: p.id });
     }
   };
 
@@ -320,7 +322,7 @@ export function BookingWizard() {
                   dispatch({ type: "update_participant", id, patch })
                 }
                 onRemove={(id) => dispatch({ type: "remove_participant", id })}
-                onAdd={() => dispatch({ type: "add_participant" })}
+                onAdd={(seedAge) => dispatch({ type: "add_participant", seedAge })}
                 onToggleAddOn={(id) => dispatch({ type: "toggle_addon", id })}
               />
             )}

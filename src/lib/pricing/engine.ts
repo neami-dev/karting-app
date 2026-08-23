@@ -100,6 +100,36 @@ export function resolveRule(
   );
 }
 
+/**
+ * Which price band a racer belongs to, tolerating a partially-filled form.
+ *
+ * The booking UI needs this while the customer is still typing: a racer with an
+ * age but no height yet has no *exact* band, but they clearly belong to the one
+ * their age falls in. Without the age-only fallback the quantity steppers can't
+ * tell those racers apart, and removing one takes the wrong racer.
+ *
+ * Pricing never uses this — `calculateQuote` requires an exact match.
+ */
+export function resolveBandId(
+  experienceId: string,
+  locationId: string,
+  age: number,
+  heightCm: number
+): string | null {
+  if (age > 0 && heightCm > 0) {
+    const exact = resolveRule(experienceId, locationId, age, heightCm);
+    if (exact) return exact.id;
+  }
+  if (age > 0) {
+    const byAge = rulesFor(experienceId, locationId).find((r) => {
+      const { minAge = 0, maxAge = 200 } = r.eligibility;
+      return age >= minAge && age <= maxAge;
+    });
+    if (byAge) return byAge.id;
+  }
+  return null;
+}
+
 const isFinitePositive = (n: unknown): n is number =>
   typeof n === "number" && Number.isFinite(n) && n > 0;
 

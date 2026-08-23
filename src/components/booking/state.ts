@@ -60,7 +60,9 @@ export function initialState(overrides?: Partial<BookingState>): BookingState {
     experienceSlug: null,
     date: null,
     timeSlot: null,
-    participants: [newParticipant()],
+    // No seeded racer: every participant is created by a band stepper (or the
+    // explicit add button) so the stepper counts always match the cards.
+    participants: [],
     addOnIds: [],
     customer: {},
     fieldErrors: {},

@@ -6,7 +6,12 @@ import { Field, TextInput } from "@/components/ui/Field";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { getAddOnsSync } from "@/lib/services/experiences";
-import { explainIneligibility, resolveRule, rulesFor } from "@/lib/pricing/engine";
+import {
+  explainIneligibility,
+  resolveBandId,
+  resolveRule,
+  rulesFor,
+} from "@/lib/pricing/engine";
 import { formatPrice, cx } from "@/lib/format";
 import type {
   BookingParticipant,
@@ -46,7 +51,7 @@ export function StepParticipants({
   onCountChange: (ruleCategory: string, delta: number, seedAge: number) => void;
   onUpdate: (id: string, patch: Partial<BookingParticipant>) => void;
   onRemove: (id: string) => void;
-  onAdd: () => void;
+  onAdd: (seedAge: number) => void;
   onToggleAddOn: (id: string) => void;
 }) {
   const rules = useMemo(
@@ -56,20 +61,12 @@ export function StepParticipants({
 
   const availableAddOns = getAddOnsSync(experience.addOnIds);
 
-  /** How many current racers currently resolve to each band. */
+  /** How many current racers resolve to each band. */
   const countFor = (rule: PricingRule) =>
-    participants.filter((p) => {
-      const resolved =
-        p.age > 0 && p.heightCm > 0
-          ? resolveRule(experience.id, location.id, p.age, p.heightCm)
-          : null;
-      // Un-filled racers count toward the band their seeded age suggests.
-      if (!resolved) {
-        const { minAge = 0, maxAge = 200 } = rule.eligibility;
-        return p.age >= minAge && p.age <= maxAge;
-      }
-      return resolved.id === rule.id;
-    }).length;
+    participants.filter(
+      (p) =>
+        resolveBandId(experience.id, location.id, p.age, p.heightCm) === rule.id
+    ).length;
 
   const belowMinimum = participants.length < experience.minParticipants;
   const atCapacity = participants.length >= experience.maxParticipants;
@@ -127,6 +124,13 @@ export function StepParticipants({
           harness have to fit.
         </p>
 
+        {participants.length === 0 && (
+          <p className="t-body-md mt-sm border border-dashed border-hairline p-sm text-muted-soft">
+            No racers yet — use the counters above to add them, then enter each
+            racer&apos;s age and height here.
+          </p>
+        )}
+
         <ul className="mt-sm flex flex-col gap-xs">
           {participants.map((participant, index) => {
             const hasDetails = participant.age > 0 && participant.heightCm > 0;
@@ -167,7 +171,7 @@ export function StepParticipants({
                         {rule.label} · {formatPrice(rule.price)}
                       </Badge>
                     )}
-                    {participants.length > 1 && (
+                    {participants.length > 0 && (
                       <button
                         type="button"
                         onClick={() => onRemove(participant.id)}
@@ -269,8 +273,13 @@ export function StepParticipants({
           })}
         </ul>
 
-        {!atCapacity && (
-          <Button variant="outline" size="sm" className="mt-xs" onClick={onAdd}>
+        {!atCapacity && rules.length > 0 && (
+          <Button
+            variant="outline"
+            size="sm"
+            className="mt-xs"
+            onClick={() => onAdd(defaultAgeFor(rules[0]))}
+          >
             + Add another racer
           </Button>
         )}
