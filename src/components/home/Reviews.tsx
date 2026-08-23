@@ -6,7 +6,11 @@ import { site } from "@/lib/data/site";
 
 function Stars({ rating }: { rating: number }) {
   return (
-    <p className="flex items-center gap-xxxs" aria-label={`${rating} out of 5 stars`}>
+    <p
+      role="img"
+      aria-label={`${rating} out of 5 stars`}
+      className="flex items-center gap-xxxs"
+    >
       {Array.from({ length: 5 }).map((_, i) => (
         <span
           key={i}
@@ -55,7 +59,7 @@ export function Reviews() {
               <blockquote className="t-body-md mt-xs flex-1 text-body">
                 {review.body}
               </blockquote>
-              <footer className="t-caption mt-sm border-t border-hairline pt-xs text-muted">
+              <footer className="t-caption mt-sm border-t border-hairline pt-xs text-muted-soft">
                 <cite className="not-italic text-body-strong">{review.author}</cite>
                 {" · "}
                 {new Date(review.date).toLocaleDateString("en-GB", {
@@ -67,7 +71,7 @@ export function Reviews() {
           ))}
         </ul>
 
-        <p className="t-caption mt-sm text-muted">
+        <p className="t-caption mt-sm text-muted-soft">
           Review content shown here is placeholder material. Connect a live review
           provider to replace it.
         </p>

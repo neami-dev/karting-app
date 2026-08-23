@@ -68,13 +68,13 @@ export function ExperienceCard({
 
         <dl className="mt-sm flex items-end justify-between gap-xs border-t border-hairline pt-xs">
           <div>
-            <dt className="t-caption-upper text-muted">Requirement</dt>
+            <dt className="t-caption-upper text-muted-soft">Requirement</dt>
             <dd className="t-body-sm mt-0.5 text-body-strong">
               {eligibilityLabel(experience)}
             </dd>
           </div>
           <div className="text-right">
-            <dt className="t-caption-upper text-muted">From</dt>
+            <dt className="t-caption-upper text-muted-soft">From</dt>
             <dd className="t-title-md tabular mt-0.5 text-ink">
               {price !== null ? formatPrice(price) : "On request"}
             </dd>

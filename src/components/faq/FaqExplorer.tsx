@@ -67,7 +67,7 @@ export function FaqExplorer() {
         </div>
       </div>
 
-      <p className="t-caption mt-sm text-muted" role="status" aria-live="polite">
+      <p className="t-caption mt-sm text-muted-soft" role="status" aria-live="polite">
         {results.length} {results.length === 1 ? "question" : "questions"}
         {query ? ` matching “${query}”` : ""}
       </p>

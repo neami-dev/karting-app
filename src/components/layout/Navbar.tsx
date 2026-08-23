@@ -173,7 +173,7 @@ export function Navbar() {
                   )}
                 >
                   {item.label}
-                  <span aria-hidden="true" className="text-muted">→</span>
+                  <span aria-hidden="true" className="text-muted-soft">→</span>
                 </Link>
               </li>
             ))}

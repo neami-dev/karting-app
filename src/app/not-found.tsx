@@ -46,7 +46,7 @@ export default function NotFound() {
                   className="t-body-md flex items-center justify-between border border-hairline p-xs text-ink transition-colors hover:border-ink/30"
                 >
                   {link.label}
-                  <span aria-hidden="true" className="text-muted">→</span>
+                  <span aria-hidden="true" className="text-muted-soft">→</span>
                 </Link>
               </li>
             ))}

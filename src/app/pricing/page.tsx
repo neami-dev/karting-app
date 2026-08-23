@@ -91,7 +91,7 @@ export default function PricingPage() {
           <div className="mt-lg grid gap-x-lg gap-y-md sm:grid-cols-2">
             {HOW_PRICING_WORKS.map((item, i) => (
               <div key={item.title} className="border-t border-hairline pt-sm">
-                <p className="t-caption-upper text-primary">
+                <p className="t-caption-upper text-muted-soft">
                   {String(i + 1).padStart(2, "0")}
                 </p>
                 <h3 className="t-title-md mt-xxs text-ink">{item.title}</h3>
@@ -100,7 +100,7 @@ export default function PricingPage() {
             ))}
           </div>
 
-          <p className="t-caption mt-lg border-l-2 border-info/50 pl-xs text-muted">
+          <p className="t-caption mt-lg border-l-2 border-info/50 pl-xs text-muted-soft">
             Prices shown across this site are placeholder figures pending
             confirmation from the operator. They are held in one configuration file
             and can be updated — or served from a pricing API — without changing any

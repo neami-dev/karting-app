@@ -62,7 +62,7 @@ export function EmptyState({
         className
       )}
     >
-      <span className="mb-xs text-2xl text-muted" aria-hidden="true">
+      <span className="mb-xs text-2xl text-muted-soft" aria-hidden="true">
         ⚑
       </span>
       <p className="t-title-md text-ink">{title}</p>
@@ -75,7 +75,7 @@ export function EmptyState({
 /** Marks data the operator still has to confirm — honesty over invention. */
 export function PlaceholderNote({ children }: { children: ReactNode }) {
   return (
-    <p className="t-caption border-l-2 border-info/50 pl-xs text-muted">
+    <p className="t-caption border-l-2 border-info/50 pl-xs text-muted-soft">
       {children}
     </p>
   );

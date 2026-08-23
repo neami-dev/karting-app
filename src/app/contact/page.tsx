@@ -78,7 +78,7 @@ export default function ContactPage() {
 
               <dl className="mt-md divide-y divide-hairline border-y border-hairline">
                 <div className="flex items-baseline justify-between gap-xs py-xs">
-                  <dt className="t-caption-upper text-muted">Central line</dt>
+                  <dt className="t-caption-upper text-muted-soft">Central line</dt>
                   <dd>
                     <a
                       href={`tel:${site.phone.replace(/\s/g, "")}`}
@@ -89,7 +89,7 @@ export default function ContactPage() {
                   </dd>
                 </div>
                 <div className="flex items-baseline justify-between gap-xs py-xs">
-                  <dt className="t-caption-upper text-muted">Email</dt>
+                  <dt className="t-caption-upper text-muted-soft">Email</dt>
                   <dd>
                     <a
                       href={`mailto:${site.email}`}
@@ -100,7 +100,7 @@ export default function ContactPage() {
                   </dd>
                 </div>
                 <div className="flex items-baseline justify-between gap-xs py-xs">
-                  <dt className="t-caption-upper text-muted">Events</dt>
+                  <dt className="t-caption-upper text-muted-soft">Events</dt>
                   <dd className="t-body-md text-right text-ink">
                     <Link href="/events#enquiry" className="underline-offset-4 hover:underline">
                       Request an event quote

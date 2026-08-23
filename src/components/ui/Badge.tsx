@@ -50,7 +50,7 @@ export function SectionLabel({
     <p
       className={cx(
         "t-caption-upper flex items-center gap-xxs",
-        tone === "dark" ? "text-muted-soft" : "text-muted",
+        tone === "dark" ? "text-muted-soft" : "text-muted-soft",
         className
       )}
     >

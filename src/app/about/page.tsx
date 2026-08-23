@@ -142,7 +142,7 @@ export default function AboutPage() {
           <div className="stagger mt-lg grid gap-md md:grid-cols-3">
             {VALUES.map((value) => (
               <article key={value.label} className="border-t border-hairline pt-sm">
-                <p className="t-caption-upper text-primary">{value.label}</p>
+                <p className="t-caption-upper text-muted-soft">{value.label}</p>
                 <h3 className="t-display-md mt-xs text-ink">{value.title}</h3>
                 <p className="t-body-md mt-xs text-body">{value.body}</p>
               </article>
@@ -173,7 +173,7 @@ export default function AboutPage() {
             </ul>
           </div>
 
-          <p className="t-caption mt-lg border-l-2 border-info/50 pl-xs text-muted">
+          <p className="t-caption mt-lg border-l-2 border-info/50 pl-xs text-muted-soft">
             Company history, staff details and operating statistics on this page are
             placeholder content pending confirmation from the operator.
           </p>

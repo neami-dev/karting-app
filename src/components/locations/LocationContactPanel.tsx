@@ -28,7 +28,7 @@ export function LocationContactPanel({
 
         <dl className="mt-sm divide-y divide-hairline border-y border-hairline">
           <div className="flex items-baseline justify-between gap-xs py-xs">
-            <dt className="t-caption-upper text-muted">Phone</dt>
+            <dt className="t-caption-upper text-muted-soft">Phone</dt>
             <dd>
               <a
                 href={`tel:${location.phone.replace(/\s/g, "")}`}
@@ -39,7 +39,7 @@ export function LocationContactPanel({
             </dd>
           </div>
           <div className="flex items-baseline justify-between gap-xs py-xs">
-            <dt className="t-caption-upper text-muted">Email</dt>
+            <dt className="t-caption-upper text-muted-soft">Email</dt>
             <dd>
               <a
                 href={`mailto:${location.email}`}
@@ -50,7 +50,7 @@ export function LocationContactPanel({
             </dd>
           </div>
           <div className="flex items-baseline justify-between gap-xs py-xs">
-            <dt className="t-caption-upper text-muted">WhatsApp</dt>
+            <dt className="t-caption-upper text-muted-soft">WhatsApp</dt>
             <dd>
               <a
                 href={whatsappLink(
@@ -92,7 +92,7 @@ export function LocationContactPanel({
                   >
                     {dayName(day)}
                     {isToday && (
-                      <span className="t-caption-upper ml-xxs text-primary">
+                      <span className="t-caption-upper ml-xxs text-ink">
                         Today
                       </span>
                     )}
@@ -137,7 +137,7 @@ export function LocationContactPanel({
           </ButtonAnchor>
         </div>
 
-        <p className="t-caption mt-sm text-muted">
+        <p className="t-caption mt-sm text-muted-soft">
           Opening hours and contact details are placeholder data pending
           confirmation. Central line:{" "}
           <a href={`tel:${site.phone.replace(/\s/g, "")}`} className="underline">
@@ -158,7 +158,7 @@ export function LocationContactPanel({
               className="absolute inset-0 h-full w-full"
             />
           </div>
-          <p className="t-caption mt-xxs text-muted">
+          <p className="t-caption mt-xxs text-muted-soft">
             Map data © OpenStreetMap contributors.{" "}
             <Link
               href={directionsUrl(location)}

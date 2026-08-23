@@ -137,7 +137,7 @@ export function StepTime({
                         isSelected
                           ? "text-on-primary/80"
                           : soldOut
-                            ? "text-muted"
+                            ? "text-muted-soft"
                             : slot.status === "limited"
                               ? "text-warning"
                               : "text-body"
@@ -173,7 +173,7 @@ export function StepTime({
                 (s) =>
                   s.status !== "sold_out" && participantCount > s.spotsAvailable
               ) && (
-                <p className="t-caption mt-xs text-muted">
+                <p className="t-caption mt-xs text-muted-soft">
                   Greyed-out slots don&apos;t have room for {participantCount}{" "}
                   racers. Reduce your group or pick a quieter time.
                 </p>

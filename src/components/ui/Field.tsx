@@ -49,7 +49,7 @@ export function Field({
       {children({ inputId, describedBy })}
 
       {hint && !error && (
-        <p id={hintId} className="t-caption text-muted">
+        <p id={hintId} className="t-caption text-muted-soft">
           {hint}
         </p>
       )}
@@ -69,7 +69,7 @@ export function Field({
 }
 
 const inputBase =
-  "h-12 w-full rounded-sm border bg-canvas px-xs t-body-md text-ink placeholder:text-muted " +
+  "h-12 w-full rounded-sm border bg-canvas px-xs t-body-md text-ink placeholder:text-muted-soft " +
   "transition-colors duration-150 focus:border-ink/50 focus:outline-none " +
   "focus-visible:outline-2 focus-visible:outline-accent-yellow focus-visible:outline-offset-2";
 

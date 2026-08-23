@@ -86,7 +86,7 @@ export function Hero() {
             </div>
 
             {selected && (
-              <p className="t-caption mt-xs text-muted">
+              <p className="t-caption mt-xs text-muted-soft">
                 {selected.name} · {selected.tracks[0]?.lengthM} m ·{" "}
                 <Link href={`/${selected.slug}`} className="underline hover:text-ink">
                   Circuit details
@@ -102,7 +102,7 @@ export function Hero() {
         <dl className="editorial grid grid-cols-2 divide-hairline md:grid-cols-4 md:divide-x">
           {TRUST.map((item) => (
             <div key={item.label} className="px-0 py-sm md:px-sm md:first:pl-0">
-              <dt className="t-caption-upper text-muted">{item.label}</dt>
+              <dt className="t-caption-upper text-muted-soft">{item.label}</dt>
               <dd className="t-display-md tabular mt-xxxs text-ink">{item.value}</dd>
             </div>
           ))}

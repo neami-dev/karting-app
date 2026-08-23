@@ -34,7 +34,7 @@ export function StepNav({
                     ? "text-ink"
                     : isDone
                       ? "text-body hover:text-ink"
-                      : "cursor-default text-muted"
+                      : "cursor-default text-muted-soft"
                 )}
               >
                 <span
@@ -45,7 +45,7 @@ export function StepNav({
                       ? "border-primary bg-primary text-on-primary"
                       : isDone
                         ? "border-ink/40 text-ink"
-                        : "border-hairline text-muted"
+                        : "border-hairline text-muted-soft"
                   )}
                 >
                   {isDone ? "✓" : i + 1}

@@ -57,7 +57,7 @@ export function WhyChooseUs() {
         <div className="stagger mt-lg grid gap-x-lg gap-y-md sm:grid-cols-2 lg:grid-cols-3">
           {BENEFITS.map((b, i) => (
             <div key={b.title} className="border-t border-hairline pt-sm">
-              <p className="t-caption-upper text-primary">
+              <p className="t-caption-upper text-muted-soft">
                 {String(i + 1).padStart(2, "0")}
               </p>
               <h3 className="t-title-md mt-xxs text-ink">{b.title}</h3>

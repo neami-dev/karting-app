@@ -47,7 +47,7 @@ export function LocationSelect({
         aria-hidden="true"
         className={cx(
           "pointer-events-none absolute right-xs top-1/2 -translate-y-1/2",
-          tone === "dark" ? "text-muted-soft" : "text-muted"
+          tone === "dark" ? "text-muted-soft" : "text-muted-soft"
         )}
       >
         ▾

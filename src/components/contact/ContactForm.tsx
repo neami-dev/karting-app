@@ -299,7 +299,7 @@ export function ContactForm({
         <Button type="submit" disabled={state === "sending"}>
           {state === "sending" ? "Sending…" : "Send message"}
         </Button>
-        <p className="t-caption text-muted">
+        <p className="t-caption text-muted-soft">
           We reply within one working day.
         </p>
       </div>

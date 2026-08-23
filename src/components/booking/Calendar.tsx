@@ -188,7 +188,7 @@ export function Calendar({
               key={d}
               role="columnheader"
               aria-label={d}
-              className="t-caption-upper flex h-8 items-center justify-center text-muted"
+              className="t-caption-upper flex h-8 items-center justify-center text-muted-soft"
             >
               <span aria-hidden="true">{d.slice(0, 1)}</span>
             </div>
@@ -229,7 +229,7 @@ export function Calendar({
                       ? "bg-primary font-semibold text-on-primary"
                       : selectable
                         ? "text-ink hover:bg-canvas-elevated"
-                        : "cursor-not-allowed text-muted line-through decoration-hairline"
+                        : "cursor-not-allowed text-muted-soft line-through decoration-hairline"
                   )}
                 >
                   {date.getDate()}
@@ -246,14 +246,14 @@ export function Calendar({
         </div>
       </div>
 
-      <p className="t-caption flex flex-wrap items-center gap-xs border-t border-hairline px-xs py-xxs text-muted">
+      <p className="t-caption flex flex-wrap items-center gap-xs border-t border-hairline px-xs py-xxs text-muted-soft">
         <span className="flex items-center gap-xxxs">
           <span className="h-2 w-2 bg-primary" aria-hidden="true" /> Selected
         </span>
         <span className="flex items-center gap-xxxs">
           <span className="h-2 w-2 bg-canvas-elevated" aria-hidden="true" /> Available
         </span>
-        <span className="flex items-center gap-xxxs text-muted line-through">
+        <span className="flex items-center gap-xxxs text-muted-soft line-through">
           00
         </span>
         <span>Closed or fully booked</span>

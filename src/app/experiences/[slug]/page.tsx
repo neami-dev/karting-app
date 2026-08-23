@@ -139,11 +139,11 @@ export default async function ExperiencePage({
                       >
                         <span className="min-w-0">
                           <span className="t-title-sm block text-ink">{addOn.name}</span>
-                          <span className="t-caption text-muted">{addOn.description}</span>
+                          <span className="t-caption text-muted-soft">{addOn.description}</span>
                         </span>
                         <span className="t-body-md tabular shrink-0 text-ink">
                           {formatPrice(addOn.price)}
-                          <span className="text-muted">
+                          <span className="text-muted-soft">
                             {addOn.unit === "per_person" ? " / person" : " / booking"}
                           </span>
                         </span>
@@ -173,7 +173,7 @@ export default async function ExperiencePage({
 
               <div className="border border-hairline p-sm">
                 <h2 className="t-caption-upper text-ink">Price bands</h2>
-                <p className="t-caption mt-xxxs text-muted">
+                <p className="t-caption mt-xxxs text-muted-soft">
                   The band is applied automatically from each racer&apos;s age and
                   height during booking.
                 </p>

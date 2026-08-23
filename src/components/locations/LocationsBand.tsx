@@ -51,15 +51,15 @@ export function LocationsBand() {
 
                   <dl className="mt-sm grid grid-cols-3 gap-xs border-t border-hairline pt-xs">
                     <div>
-                      <dt className="t-caption-upper text-muted">Length</dt>
+                      <dt className="t-caption-upper text-muted-soft">Length</dt>
                       <dd className="t-title-sm tabular text-ink">{track.lengthM} m</dd>
                     </div>
                     <div>
-                      <dt className="t-caption-upper text-muted">Turns</dt>
+                      <dt className="t-caption-upper text-muted-soft">Turns</dt>
                       <dd className="t-title-sm tabular text-ink">{track.turns}</dd>
                     </div>
                     <div>
-                      <dt className="t-caption-upper text-muted">Formats</dt>
+                      <dt className="t-caption-upper text-muted-soft">Formats</dt>
                       <dd className="t-title-sm tabular text-ink">{count}</dd>
                     </div>
                   </dl>

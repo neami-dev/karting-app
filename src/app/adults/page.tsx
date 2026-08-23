@@ -133,7 +133,7 @@ export default function AdultsPage() {
             </div>
           </div>
 
-          <p className="t-caption mt-sm text-muted">
+          <p className="t-caption mt-sm text-muted-soft">
             Kart specifications are placeholder figures pending confirmation from
             the operator.
           </p>
@@ -152,7 +152,7 @@ export default function AdultsPage() {
           <div className="stagger mt-lg grid gap-md md:grid-cols-3">
             {RACECRAFT.map((item) => (
               <article key={item.label} className="border-t border-hairline pt-sm">
-                <p className="t-caption-upper text-primary">{item.label}</p>
+                <p className="t-caption-upper text-muted-soft">{item.label}</p>
                 <h3 className="t-display-md mt-xs text-ink">{item.title}</h3>
                 <p className="t-body-md mt-xs text-body">{item.body}</p>
               </article>

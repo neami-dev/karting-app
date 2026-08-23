@@ -60,7 +60,7 @@ export function StepLocation({
               <div className="flex flex-1 flex-col p-sm">
                 <p className="t-title-md text-ink">{location.city}</p>
                 <p className="t-body-sm mt-xxxs flex-1 text-body">{location.tagline}</p>
-                <p className="t-caption tabular mt-xs border-t border-hairline pt-xs text-muted">
+                <p className="t-caption tabular mt-xs border-t border-hairline pt-xs text-muted-soft">
                   {track.lengthM} m · {track.turns} corners ·{" "}
                   {location.tracks.length > 1 ? "2 circuits" : "1 circuit"}
                 </p>

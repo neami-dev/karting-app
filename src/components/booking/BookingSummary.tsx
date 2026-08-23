@@ -20,11 +20,11 @@ function Row({
 }) {
   return (
     <div className="flex items-baseline justify-between gap-xs border-b border-hairline py-xs last:border-0">
-      <dt className="t-caption-upper shrink-0 text-muted">{label}</dt>
+      <dt className="t-caption-upper shrink-0 text-muted-soft">{label}</dt>
       <dd
         className={cx(
           "t-body-md text-right",
-          value ? "text-ink" : "text-muted italic"
+          value ? "text-ink" : "text-muted-soft italic"
         )}
       >
         {value ?? pending}
@@ -143,21 +143,21 @@ export function BookingSummary({
             </ul>
 
             <div className="mt-sm flex items-baseline justify-between gap-xs border-t border-hairline pt-sm">
-              <span className="t-caption-upper text-muted">Total</span>
+              <span className="t-caption-upper text-muted-soft">Total</span>
               <span className="tabular text-[26px] font-medium leading-none text-ink">
                 {formatPrice(quote.total)}
               </span>
             </div>
 
             {!compact && (
-              <p className="t-caption mt-xs text-muted">
+              <p className="t-caption mt-xs text-muted-soft">
                 Payment is taken at the circuit. Booking online reserves your karts
                 — your card is not charged now.
               </p>
             )}
           </>
         ) : (
-          <p className="t-body-md text-muted">
+          <p className="t-body-md text-muted-soft">
             Add your racers&apos; ages and heights and the price appears here,
             broken down per racer.
           </p>

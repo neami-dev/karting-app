@@ -37,7 +37,7 @@ export default function Error({
         </p>
 
         {error.digest && (
-          <p className="t-caption mt-sm text-muted">
+          <p className="t-caption mt-sm text-muted-soft">
             Reference for our team:{" "}
             <span className="tabular text-body-strong">{error.digest}</span>
           </p>

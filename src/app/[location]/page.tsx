@@ -210,7 +210,7 @@ export default async function LocationPage({
             ))}
           </ul>
 
-          <p className="t-caption mt-sm border-l-2 border-info/50 pl-xs text-muted">
+          <p className="t-caption mt-sm border-l-2 border-info/50 pl-xs text-muted-soft">
             Circuit dimensions and kart specifications for {location.city} are
             placeholder figures pending confirmation.
           </p>
@@ -315,7 +315,7 @@ export default async function LocationPage({
                   </span>
                   <span
                     aria-hidden="true"
-                    className="t-button shrink-0 text-muted transition-transform duration-200 group-hover:translate-x-1 group-hover:text-primary"
+                    className="t-button shrink-0 text-muted-soft transition-transform duration-200 group-hover:translate-x-1 group-hover:text-primary"
                   >
                     →
                   </span>

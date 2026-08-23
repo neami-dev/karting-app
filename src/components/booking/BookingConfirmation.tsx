@@ -180,7 +180,7 @@ export function BookingConfirmation({ reference }: { reference: string }) {
                 key={row.label}
                 className="flex flex-col gap-xxxs py-xs sm:flex-row sm:justify-between sm:gap-sm"
               >
-                <dt className="t-caption-upper shrink-0 text-muted">{row.label}</dt>
+                <dt className="t-caption-upper shrink-0 text-muted-soft">{row.label}</dt>
                 <dd className="t-body-md text-ink sm:text-right">{row.value}</dd>
               </div>
             ))}
@@ -193,7 +193,7 @@ export function BookingConfirmation({ reference }: { reference: string }) {
               <li key={p.id} className="flex items-center justify-between gap-xs py-xs">
                 <span className="t-body-md text-ink">
                   {p.name || `Racer ${i + 1}`}
-                  <span className="t-caption ml-xxs text-muted">
+                  <span className="t-caption ml-xxs text-muted-soft">
                     {p.age} yrs · {p.heightCm} cm
                   </span>
                 </span>
@@ -231,7 +231,7 @@ export function BookingConfirmation({ reference }: { reference: string }) {
             )}
 
             <p className="mt-xxs flex items-baseline justify-between gap-xs border-t border-hairline pt-sm">
-              <span className="t-caption-upper text-muted">Total to pay at the circuit</span>
+              <span className="t-caption-upper text-muted-soft">Total to pay at the circuit</span>
               <span className="tabular text-[36px] font-medium leading-none text-ink">
                 {formatPrice(booking.total)}
               </span>
@@ -296,7 +296,7 @@ export function BookingConfirmation({ reference }: { reference: string }) {
               ))}
             </ul>
 
-            <p className="t-caption mt-sm border-t border-hairline pt-sm text-muted">
+            <p className="t-caption mt-sm border-t border-hairline pt-sm text-muted-soft">
               Need to change or cancel? Message the circuit with your reference at
               least 24 hours before your session and we&apos;ll move you free of
               charge. See the{" "}

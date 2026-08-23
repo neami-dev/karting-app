@@ -109,7 +109,7 @@ export function StepParticipants({
         <p
           className={cx(
             "t-caption mt-xs",
-            belowMinimum ? "text-warning" : "text-muted"
+            belowMinimum ? "text-warning" : "text-muted-soft"
           )}
           role={belowMinimum ? "status" : undefined}
         >
@@ -171,7 +171,7 @@ export function StepParticipants({
                       <button
                         type="button"
                         onClick={() => onRemove(participant.id)}
-                        className="t-caption-upper text-muted transition-colors hover:text-warning"
+                        className="t-caption-upper text-muted-soft transition-colors hover:text-warning"
                       >
                         Remove
                         <span className="sr-only"> racer {index + 1}</span>
@@ -306,12 +306,12 @@ export function StepParticipants({
                         <span className="t-title-sm text-ink">{addOn.name}</span>
                         <span className="t-body-sm tabular shrink-0 text-ink">
                           {formatPrice(addOn.price)}
-                          <span className="text-muted">
+                          <span className="text-muted-soft">
                             {addOn.unit === "per_person" ? " ea" : ""}
                           </span>
                         </span>
                       </span>
-                      <span className="t-caption mt-xxxs block text-muted">
+                      <span className="t-caption mt-xxxs block text-muted-soft">
                         {addOn.description}
                       </span>
                     </span>

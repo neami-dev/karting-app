@@ -132,10 +132,10 @@ export function Footer() {
         </div>
 
         <div className="mt-xl flex flex-col gap-xs border-t border-hairline pt-sm md:flex-row md:items-center md:justify-between">
-          <p className="t-caption text-muted">
+          <p className="t-caption text-muted-soft">
             © {year} {site.legalName}. All rights reserved.
           </p>
-          <p className="t-caption text-muted">
+          <p className="t-caption text-muted-soft">
             Circuit specifications, opening hours and prices shown on this site are
             placeholder data pending confirmation.
           </p>

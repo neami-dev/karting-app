@@ -41,7 +41,7 @@ export function QuantityStepper({
     >
       <div className="min-w-0">
         <p className="t-title-sm text-ink">{label}</p>
-        {hint && <p className="t-caption mt-0.5 text-muted">{hint}</p>}
+        {hint && <p className="t-caption mt-0.5 text-muted-soft">{hint}</p>}
       </div>
 
       <div className="flex items-center gap-xxs">

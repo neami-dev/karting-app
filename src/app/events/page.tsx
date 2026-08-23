@@ -122,7 +122,7 @@ export default function EventsPage() {
           <ul className="stagger mt-lg grid gap-x-lg gap-y-md sm:grid-cols-2 lg:grid-cols-3">
             {AUDIENCES.map((item) => (
               <li key={item.slug} className="border-t border-hairline pt-sm">
-                <p className="t-caption-upper text-primary">{item.who}</p>
+                <p className="t-caption-upper text-muted-soft">{item.who}</p>
                 <p className="t-body-md mt-xs text-body">{item.line}</p>
                 <ButtonLink
                   href={`/experiences/${item.slug}`}
@@ -172,7 +172,7 @@ export default function EventsPage() {
                 <p className="t-body-md text-body">{addOn.description}</p>
                 <p className="t-body-md tabular shrink-0 text-ink md:text-right">
                   {formatPrice(addOn.price)}
-                  <span className="text-muted">
+                  <span className="text-muted-soft">
                     {addOn.unit === "per_person" ? " / person" : " / booking"}
                   </span>
                 </p>

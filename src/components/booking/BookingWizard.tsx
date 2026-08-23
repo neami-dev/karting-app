@@ -264,7 +264,7 @@ export function BookingWizard() {
             className="outline-none"
             aria-live="polite"
           >
-            <p className="t-caption-upper text-muted">
+            <p className="t-caption-upper text-muted-soft">
               Step {state.step + 1} of {STEPS.length} — {stepTitle}
             </p>
           </div>
@@ -374,7 +374,7 @@ export function BookingWizard() {
             <div className="flex-1" />
 
             {blockReason && (
-              <p className="t-caption max-w-[20rem] text-right text-muted">
+              <p className="t-caption max-w-[20rem] text-right text-muted-soft">
                 {blockReason}
               </p>
             )}
@@ -418,7 +418,7 @@ export function BookingWizard() {
       {/* ---- Mobile sticky controls -------------------------------------- */}
       <div className="fixed inset-x-0 bottom-0 z-40 border-t border-hairline bg-canvas/95 backdrop-blur-md lg:hidden">
         {blockReason && (
-          <p className="t-caption border-b border-hairline px-xs py-xxs text-muted">
+          <p className="t-caption border-b border-hairline px-xs py-xxs text-muted-soft">
             {blockReason}
           </p>
         )}
@@ -435,11 +435,11 @@ export function BookingWizard() {
           )}
 
           <div className="min-w-0 flex-1">
-            <p className="t-caption-upper text-muted">Total</p>
+            <p className="t-caption-upper text-muted-soft">Total</p>
             <p
               className={cx(
                 "tabular text-lg font-medium leading-none",
-                quote?.total ? "text-ink" : "text-muted"
+                quote?.total ? "text-ink" : "text-muted-soft"
               )}
             >
               {quote && quote.total > 0 ? formatPrice(quote.total) : "—"}

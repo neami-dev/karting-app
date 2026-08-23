@@ -19,6 +19,8 @@
   --color-surface-card: #303030;
   --color-surface-soft-light: #f7f7f7;
   --color-surface-strong-light: #ebebeb;
+  /* Large-display watermark tone on light bands — clears 3:1 at 24px+ */
+  --color-watermark-light: #8c8c8c;
 
   /* --- Colors: hairlines --- */
   --color-hairline: #303030;
@@ -27,11 +29,13 @@
 
   /* --- Colors: text --- */
   --color-ink: #ffffff;
-  --color-body: #969696;
+  --color-body: #a0a0a0;
   --color-body-strong: #ffffff;
   --color-body-on-light: #181818;
+  /* #666666 per the design system. It clears 4.5:1 on the white editorial
+     bands but not on the dark canvas, so on dark surfaces use muted-soft. */
   --color-muted: #666666;
-  --color-muted-soft: #8f8f8f;
+  --color-muted-soft: #9a9a9a;
   --color-on-primary: #ffffff;
   --color-on-dark: #ffffff;
   --color-on-light: #181818;

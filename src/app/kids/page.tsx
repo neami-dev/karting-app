@@ -127,7 +127,7 @@ export default function KidsPage() {
           <div className="stagger mt-lg grid gap-x-lg gap-y-md sm:grid-cols-2 lg:grid-cols-3">
             {SAFETY.map((item, i) => (
               <div key={item.title} className="border-t border-hairline pt-sm">
-                <p className="t-caption-upper text-primary">
+                <p className="t-caption-upper text-muted-soft">
                   {String(i + 1).padStart(2, "0")}
                 </p>
                 <h3 className="t-title-md mt-xxs text-ink">{item.title}</h3>
@@ -208,7 +208,7 @@ export default function KidsPage() {
             </dl>
           </div>
 
-          <p className="t-caption mt-sm text-muted">
+          <p className="t-caption mt-sm text-muted-soft">
             Kart specifications are placeholder figures pending confirmation. Cadet
             circuits are available at{" "}
             {locations

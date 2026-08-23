@@ -39,7 +39,10 @@ export function HowItWorks() {
         <ol className="mt-lg grid gap-x-lg gap-y-md md:grid-cols-2 lg:grid-cols-4">
           {STEPS.map((step, i) => (
             <li key={step.title} className="border-t border-hairline-on-light pt-sm">
-              <span className="t-number-display block text-[56px] leading-none text-surface-strong-light">
+              <span
+                aria-hidden="true"
+                className="t-number-display block text-[56px] leading-none text-watermark-light"
+              >
                 {String(i + 1).padStart(2, "0")}
               </span>
               <h3 className="t-title-md mt-xs text-body-on-light">{step.title}</h3>
