@@ -45,11 +45,20 @@ export const bookingStore: BookingStore = {
   async findByReferenceAndContact(reference, contact) {
     const booking = await bookingStore.findByReference(reference);
     if (!booking) return null;
+
     const needle = contact.trim().toLowerCase();
-    const matches =
-      booking.customer.email.toLowerCase() === needle ||
-      booking.customer.phone.replace(/\D/g, "").endsWith(needle.replace(/\D/g, ""));
-    return matches ? booking : null;
+    if (!needle) return null;
+
+    if (booking.customer.email.toLowerCase() === needle) return booking;
+
+    // Match on the last 9 digits so 0612345678 and +212612345678 both work.
+    // Guard the length: an empty digit string would match every phone number,
+    // and a short one would match far too many.
+    const needleDigits = needle.replace(/\D/g, "");
+    if (needleDigits.length < 9) return null;
+
+    const storedDigits = booking.customer.phone.replace(/\D/g, "");
+    return storedDigits.endsWith(needleDigits.slice(-9)) ? booking : null;
   },
 
   async countSeats(locationId, experienceId, date, timeSlot) {
