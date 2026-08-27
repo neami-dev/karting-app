@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { TrackVisual } from "@/components/visuals/TrackVisual";
+import { heroImage } from "@/lib/data/imagery";
 import { cx } from "@/lib/format";
 import type { VisualSeed } from "@/lib/types";
 
@@ -13,6 +14,7 @@ export function PageHero({
   title,
   lede,
   seed = "apex",
+  image,
   actions,
   stats,
   size = "md",
@@ -21,13 +23,24 @@ export function PageHero({
   title: ReactNode;
   lede?: ReactNode;
   seed?: VisualSeed;
+  /** Key into the hero photography registry; falls back to the plate. */
+  image?: string;
   actions?: ReactNode;
   stats?: { label: string; value: string }[];
   size?: "sm" | "md" | "lg";
 }) {
   return (
     <section className="relative isolate overflow-hidden border-b border-hairline">
-      <TrackVisual seed={seed} overlay="none" fill className="-z-10" />
+      <TrackVisual
+        seed={seed}
+        src={heroImage(image)}
+        alt=""
+        sizes="100vw"
+        priority
+        overlay="none"
+        fill
+        className="-z-10"
+      />
       <div
         aria-hidden="true"
         className="absolute inset-0 -z-10 bg-gradient-to-t from-canvas via-canvas/65 to-canvas/20"

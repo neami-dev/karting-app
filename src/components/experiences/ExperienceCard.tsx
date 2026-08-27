@@ -2,6 +2,7 @@ import Link from "next/link";
 import { TrackVisual } from "@/components/visuals/TrackVisual";
 import { Badge } from "@/components/ui/Badge";
 import { startingPrice } from "@/lib/pricing/engine";
+import { experienceImage } from "@/lib/data/imagery";
 import { formatDuration, formatPrice, cx } from "@/lib/format";
 import type { Experience } from "@/lib/types";
 
@@ -42,6 +43,9 @@ export function ExperienceCard({
       <div className="relative aspect-[4/3] w-full overflow-hidden">
         <TrackVisual
           seed={experience.visual}
+          src={experienceImage(experience.slug)}
+          alt=""
+          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
           overlay="soft"
           priority={priority}
           className="h-full w-full transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"

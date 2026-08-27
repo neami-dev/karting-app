@@ -50,6 +50,7 @@ export default function ExperiencesPage() {
       <PageHero
         eyebrow="Experiences"
         seed="apex"
+        image="experiences"
         title="Every way to get on our circuits."
         lede="From a twelve-minute cadet session to a ninety-minute endurance race with pit stops. Each format lists its own age, height and group requirements, so you know before you book."
         actions={

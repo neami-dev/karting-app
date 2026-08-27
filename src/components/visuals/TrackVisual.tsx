@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { VisualSeed } from "@/lib/types";
 import { cx } from "@/lib/format";
 
@@ -27,6 +28,15 @@ interface TrackVisualProps {
    * would lose to this component's own positioning and collapse to no height.
    */
   fill?: boolean;
+  /**
+   * Path to a real photograph under /public. When set, it replaces the
+   * generated plate entirely — the plate is only ever a stand-in.
+   */
+  src?: string;
+  /** Alt text. Empty string keeps a purely decorative photo out of the AT tree. */
+  alt?: string;
+  /** Responsive sizes hint for next/image. */
+  sizes?: string;
 }
 
 /** Per-seed geometry so no two surfaces look identical. */
@@ -62,6 +72,10 @@ export function TrackVisual({
   className,
   overlay = "soft",
   fill = false,
+  src,
+  alt = "",
+  sizes = "100vw",
+  priority = false,
 }: TrackVisualProps) {
   const s = SEEDS[seed];
   const uid = `tv-${seed}`;
@@ -83,8 +97,18 @@ export function TrackVisual({
           ? { position: "absolute", inset: 0 }
           : { position: "relative" }
       }
-      aria-hidden="true"
+      aria-hidden={src && alt ? undefined : true}
     >
+      {src ? (
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          sizes={sizes}
+          priority={priority}
+          className="object-cover"
+        />
+      ) : (
       <svg
         viewBox="0 0 1200 800"
         preserveAspectRatio="xMidYMid slice"
@@ -300,6 +324,7 @@ export function TrackVisual({
           <rect width="1200" height="800" fill={`url(#${uid}-vignette)`} />
         </g>
       </svg>
+      )}
 
       {overlayClass && <div className={cx("absolute inset-0", overlayClass)} />}
     </div>
